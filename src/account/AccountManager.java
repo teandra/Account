@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class AccountManager {
 
 	private Account[] account = new Account[100];
-
+	private ConturiPanel listener;
+	
 	private int position = 0;
 	int nElem = 0;
 
@@ -13,6 +14,7 @@ public class AccountManager {
 		account[position] = account1;
 		// ca sa nu siprasciu
 		position++;
+		listener.managerChanged();
 	}
 
 	@Override
@@ -37,6 +39,15 @@ public class AccountManager {
 	
 	public Account getAccount(int pos){
 		return account[pos];
+	}
+
+	public void setListener(ConturiPanel conturiPanel) {
+		listener = conturiPanel;
+	}
+
+	public Account[] getAccounts() {
+
+		return account;
 	}
 
 }
